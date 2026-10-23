@@ -1,0 +1,127 @@
+/* Project Section Core Styles */
+@keyframes pulseDot {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.project-page-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #030712;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Split Screen Layout for Desktop */
+.project-split-layout {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+/* Fixed/Sticky Left Half */
+.project-left-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  height: 100vh;
+  z-index: 10;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+/* Scrollable Right Half */
+.project-right-scrollable {
+  margin-left: 50vw;
+  width: 50vw;
+  position: relative;
+  z-index: 20;
+  box-sizing: border-box;
+}
+
+/* Scroll Progress Track */
+.project-progress-track {
+  position: fixed;
+  left: calc(50vw - 20px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 35;
+  pointer-events: auto;
+}
+
+.progress-dot-btn {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  position: relative;
+}
+
+.progress-dot-btn.active {
+  width: 14px;
+  height: 32px;
+  border-radius: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .project-left-sticky {
+    position: relative;
+    width: 100vw;
+    height: 70vh;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .project-right-scrollable {
+    margin-left: 0;
+    width: 100vw;
+  }
+
+  .project-progress-track {
+    display: none;
+  }
+
+  .project-card-wrapper {
+    padding: 60px 20px 40px 20px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-left-sticky {
+    height: 80vh;
+  }
+
+  .visualizer-container {
+    padding: 20px !important;
+  }
+
+  .project-card-wrapper {
+    padding: 40px 14px 40px 14px !important;
+  }
+
+  .scroll-indicator-root {
+    right: 12px !important;
+    bottom: 16px !important;
+  }
+}
